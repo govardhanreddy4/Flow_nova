@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Creator Growth</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+.section{
+  display:none;
+  background:#fff;
+  border-radius:24px;
+  padding:40px;
+  width:100%;
+  max-width:600px;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+.section.active{display:block}
+h1,h2{text-align:center;margin-bottom:10px}
+p{text-align:center;color:#555;margin-bottom:25px}
+input,textarea{
+  width:100%;padding:14px;margin-bottom:15px;
+  border-radius:12px;border:2px solid #e0e0e0;font-size:16px
+}
+button{
+  width:100%;padding:15px;border:none;
+  border-radius:12px;font-size:18px;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  color:#fff;font-weight:600;cursor:pointer
+}
+button.secondary{
+  background:#fff;color:#667eea;border:2px solid #667eea
+}
+.small{font-size:14px;color:#777;text-align:center;margin-top:15px}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="section active" id="hero">
+  <h1>Creator Growth</h1>
+  <p>Automate Instagram DMs when users comment</p>
+  <button onclick="go('signup')">Get Started</button>
+</div>
+
+<!-- SIGNUP -->
+<div class="section" id="signup">
+  <h2>Create Account</h2>
+  <input placeholder="Name">
+  <input placeholder="Email">
+  <input type="password" placeholder="Password">
+  <button onclick="go('connect')">Continue</button>
+  <div class="small">Already have account?
+    <a href="#" onclick="go('login')">Login</a>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div class="section" id="login">
+  <h2>Login</h2>
+  <input placeholder="Email">
+  <input type="password" placeholder="Password">
+  <button onclick="go('connect')">Login</button>
+  <div class="small"><a href="#" onclick="go('hero')">Back</a></div>
+</div>
+
+<!-- CONNECT -->
+<div class="section" id="connect">
+  <h2>Connect Instagram</h2>
+  <p>No password required</p>
+  <button onclick="go('payment')">Connect Instagram</button>
+</div>
+
+<!-- PAYMENT -->
+<div class="section" id="payment">
+  <h2>Payment</h2>
+  <p>₹79 First Month • ₹299/month after</p>
+  <button onclick="go('setup')">Pay ₹79</button>
+</div>
+
+<!-- SETUP -->
+<div class="section" id="setup">
+  <h2>Setup Auto DM</h2>
+  <input placeholder="Trigger Keyword (FREE)">
+  <textarea placeholder="DM Message"></textarea>
+  <input placeholder="Resource Link">
+  <button onclick="go('success')">Activate Auto DM</button>
+</div>
+
+<!-- SUCCESS -->
+<div class="section" id="success">
+  <h2>🎉 Success!</h2>
+  <p>Your Auto DM system is active</p>
+  <button class="secondary" onclick="go('hero')">Back to Home</button>
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.section')
+    .forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
